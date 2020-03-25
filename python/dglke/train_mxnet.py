@@ -28,6 +28,9 @@ import json
 
 from .models import KEModel
 
+def get_num_gpus():
+    return len(mx.test_utils.list_gpus())
+
 def load_model(logger, args, n_entities, n_relations, ckpt=None):
     model = KEModel(args, args.model_name, n_entities, n_relations,
                     args.hidden_dim, args.gamma,

@@ -95,6 +95,10 @@ def connect_to_kvstore(args, entity_pb, relation_pb, l2g):
     return my_client
 
 
+def get_num_gpus():
+    return th.cuda.device_count()
+
+
 def load_model(logger, args, n_entities, n_relations, ckpt=None):
     model = KEModel(args, args.model_name, n_entities, n_relations,
                     args.hidden_dim, args.gamma,

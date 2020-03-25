@@ -20,6 +20,7 @@
 import os
 import logging
 import time
+import numpy as np
 
 from .dataloader import EvalDataset, TrainDataset, NewBidirectionalOneShotIterator
 from .dataloader import get_dataset
@@ -32,11 +33,13 @@ if backend.lower() == 'mxnet':
     from .train_mxnet import load_model
     from .train_mxnet import train
     from .train_mxnet import test
+    from .train_mxnet import get_num_gpus
 else:
     import torch.multiprocessing as mp
     from .train_pytorch import load_model
     from .train_pytorch import train, train_mp
     from .train_pytorch import test, test_mp
+    from .train_pytorch import get_num_gpus
 
 class ArgParser(CommonArgParser):
     def __init__(self):
@@ -104,6 +107,7 @@ def main():
     if len(args.gpu) > 1 and args.num_proc > 1:
         assert args.num_proc % len(args.gpu) == 0, \
                 'The number of processes needs to be divisible by the number of GPUs'
+    assert np.max(args.gpu) < get_num_gpus(), 'The requested GPUs do not exist'
     # For multiprocessing training, we need to ensure that training processes are synchronized periodically.
     if args.num_proc > 1:
         args.force_sync_interval = 1000
