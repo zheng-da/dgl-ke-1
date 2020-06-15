@@ -118,8 +118,10 @@ more information on how to use the examples, please refer to the
 that draws the examples.
 
 .. image:: ../images/kg_example.png
-  :width: 400
+  :width: 600
   :alt: Figure1: World of Mary
+
+  Figure1: World of Mary
 
 What is the task of Knowledge Graph Embedding?
 ==============================================
@@ -176,21 +178,11 @@ the reader to DGL-KE, an open source knowledge graph embedding library,
 we limit the scope only to those methods that are implemented by DGL-KE
 and are listed in Figure 2.
 
-.. raw:: html
+.. image:: ../images/kge_scores.png
+  :width: 400
+  :alt: Figure2: A list of score functions for KE papers implemented by DGL-KE
 
-   <figure>
-       
-
-.. raw:: html
-
-   <figcaption>
-
-Figure2: A list of score functions for KE papers implemented by DGL-KE
-
-.. raw:: html
-
-   </figcaption>
-   </figure>
+  Figure2: A list of score functions for KE papers implemented by DGL-KE
 
 A short explanation of the score functions
 ------------------------------------------
@@ -232,21 +224,10 @@ respectively. TransE performs linear transformation and the scoring
 function is negative distance between :math:`h+r` and :math:`t`, or
 :math:`f=-\|h+r-t\|_{\frac{1}{2}}`
 
-.. raw:: html
+.. image:: ../images/transe.png
+  :alt: Figure3: TransE
 
-   <figure>
-       
-
-.. raw:: html
-
-   <figcaption>
-
-Figure 3: TransE
-
-.. raw:: html
-
-   </figcaption>
-   </figure>
+  Figure3: TransE
 
 TransR
 ~~~~~~
@@ -278,22 +259,10 @@ measures euclidean distance between :math:`h+r` and :math:`t`, but the
 distance measure is per relationship space. More formally:
 :math:`f_r=\|h_r+r-t_r\|_2^2`
 
-.. raw:: html
+.. image:: ../images/transr.png
+  :alt: Figure4: TransR projecting different aspects of an entity to a relationship space.
 
-   <figure>
-       
-
-.. raw:: html
-
-   <figcaption>
-
-Figure 4: TransR projecting different aspects of an entity to a
-relationship space.
-
-.. raw:: html
-
-   </figcaption>
-   </figure>
+  Figure4: TransR projecting different aspects of an entity to a relationship space.
 
 Another advantage of TransR over TransE is its ability to extract
 compositional rules. Ability to extract rules has two major benefits. It
